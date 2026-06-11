@@ -12,9 +12,10 @@
     <groupId>com.kodebytes.acasado</groupId>
     <artifactId>my-spring-app</artifactId>
     <version>1.0.0</version>
-
+    <name>order-service</name>
+    <description>Dekorate demod service</description>
     <properties>
-        <java.version>25</java.version>
+        <java.version>21</java.version>
     </properties>
 
     <dependencies>
@@ -44,6 +45,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

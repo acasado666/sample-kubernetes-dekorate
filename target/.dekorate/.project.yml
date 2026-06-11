@@ -15,6 +15,6 @@ buildInfo:
 scmInfo:
   root: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/
   branch: master
-  commit: 69e9b8b608de2cfdfdd93f1725631f199f2c207d
+  commit: bd1d79d8f6c7d253005fa25593450293921eb0e7
   remote:
     origin: https://github.com/acasado666/sample-kubernetes-dekorate.git

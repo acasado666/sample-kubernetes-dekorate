@@ -16,49 +16,81 @@ project:
   scmInfo:
     root: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/
     branch: master
-    commit: 69e9b8b608de2cfdfdd93f1725631f199f2c207d
+    commit: bd1d79d8f6c7d253005fa25593450293921eb0e7
     remote:
       origin: https://github.com/acasado666/sample-kubernetes-dekorate.git
 partOf: null
 name: my-spring-app
 version: 1.0.0
 deploymentKind: Deployment
+envVars:
+  - name: SPRING_PROFILES_ACTIVE
+    value: prod
+    secret: ""
+    configmap: ""
+    field: ""
+    resourceField: ""
+    prefix: ""
 workingDir: null
 serviceAccount: null
+ports:
+  - name: http
+    containerPort: 8080
+    hostPort: 80
+    nodePort: 0
+    path: /
+    protocol: TCP
 serviceType: ClusterIP
 imagePullPolicy: IfNotPresent
 deploymentStrategy: None
-rollingUpdate: null
-nodeSelector: null
+rollingUpdate:
+  maxUnavailable: 25%
+  maxSurge: 25%
+nodeSelector:
+  key: ""
+  value: ""
 livenessProbe:
-  httpActionPath: /actuator/health/liveness
-  execAction: null
-  tcpSocketAction: null
-  grpcAction: null
-  initialDelaySeconds: null
-  periodSeconds: null
-  timeoutSeconds: null
-  successThreshold: null
-  failureThreshold: null
+  httpActionPath: ""
+  execAction: ""
+  tcpSocketAction: ""
+  grpcAction: ""
+  initialDelaySeconds: 0
+  periodSeconds: 30
+  timeoutSeconds: 10
+  successThreshold: 1
+  failureThreshold: 3
 readinessProbe:
-  httpActionPath: /actuator/health/readiness
-  execAction: null
-  tcpSocketAction: null
-  grpcAction: null
-  initialDelaySeconds: null
-  periodSeconds: null
-  timeoutSeconds: null
-  successThreshold: null
-  failureThreshold: null
-startupProbe: null
-requestResources: null
-limitResources: null
+  httpActionPath: ""
+  execAction: ""
+  tcpSocketAction: ""
+  grpcAction: ""
+  initialDelaySeconds: 0
+  periodSeconds: 30
+  timeoutSeconds: 10
+  successThreshold: 1
+  failureThreshold: 3
+startupProbe:
+  httpActionPath: ""
+  execAction: ""
+  tcpSocketAction: ""
+  grpcAction: ""
+  initialDelaySeconds: 0
+  periodSeconds: 30
+  timeoutSeconds: 10
+  successThreshold: 1
+  failureThreshold: 3
+requestResources:
+  memory: ""
+  cpu: ""
+limitResources:
+  memory: ""
+  cpu: ""
 autoDeployEnabled: false
-replicas: 1
+replicas: 2
 ingress:
-  host: null
-  ingressClassName: null
-  targetPort: null
-  expose: null
-  tlsSecretName: null
+  host: ""
+  ingressClassName: ""
+  targetPort: http
+  expose: false
+  tlsSecretName: ""
 headless: false

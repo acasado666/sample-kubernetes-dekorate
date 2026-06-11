@@ -1,3 +1,4 @@
 META-INF\dekorate\kubernetes.json
+com\kodebytes\acasado\MySpringApplication$DekorateController.class
 com\kodebytes\acasado\MySpringApplication.class
 META-INF\dekorate\kubernetes.yml

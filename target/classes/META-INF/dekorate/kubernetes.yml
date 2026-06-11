@@ -4,25 +4,25 @@ kind: Deployment
 metadata:
   annotations:
     app.dekorate.io/vcs-url: https://github.com/acasado666/sample-kubernetes-dekorate.git
-    app.dekorate.io/commit-id: 69e9b8b608de2cfdfdd93f1725631f199f2c207d
+    app.dekorate.io/commit-id: bd1d79d8f6c7d253005fa25593450293921eb0e7
   labels:
     app.kubernetes.io/name: my-spring-app
     app.kubernetes.io/version: 1.0.0
   name: my-spring-app
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app.kubernetes.io/version: 1.0.0
       app.kubernetes.io/name: my-spring-app
+      app.kubernetes.io/version: 1.0.0
   template:
     metadata:
       annotations:
         app.dekorate.io/vcs-url: https://github.com/acasado666/sample-kubernetes-dekorate.git
-        app.dekorate.io/commit-id: 69e9b8b608de2cfdfdd93f1725631f199f2c207d
+        app.dekorate.io/commit-id: bd1d79d8f6c7d253005fa25593450293921eb0e7
       labels:
-        app.kubernetes.io/version: 1.0.0
         app.kubernetes.io/name: my-spring-app
+        app.kubernetes.io/version: 1.0.0
     spec:
       containers:
         - env:
@@ -30,17 +30,33 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.namespace
+            - name: SPRING_PROFILES_ACTIVE
+              value: prod
           image: acasa/my-spring-app:1.0.0
           imagePullPolicy: IfNotPresent
-          livenessProbe:
-            httpGet:
-              path: /actuator/health/liveness
-              port: 8080
-              scheme: HTTP
-            successThreshold: 1
           name: my-spring-app
-          readinessProbe:
-            httpGet:
-              path: /actuator/health/readiness
-              port: 8080
-              scheme: HTTP
+          ports:
+            - containerPort: 8080
+              name: http
+              protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    app.dekorate.io/vcs-url: https://github.com/acasado666/sample-kubernetes-dekorate.git
+    app.dekorate.io/commit-id: bd1d79d8f6c7d253005fa25593450293921eb0e7
+  labels:
+    app.kubernetes.io/name: my-spring-app
+    app.kubernetes.io/version: 1.0.0
+  name: my-spring-app
+spec:
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: my-spring-app
+    app.kubernetes.io/version: 1.0.0
+  type: ClusterIP
