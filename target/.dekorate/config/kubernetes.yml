@@ -1,0 +1,64 @@
+---
+project:
+  root: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/
+  dekorateInputDir: null
+  dekorateOutputDir: META-INF/dekorate
+  dekorateMetaDir: ../.dekorate
+  buildInfo:
+    name: my-spring-app
+    version: 1.0.0
+    packaging: jar
+    buildTool: maven
+    buildToolVersion: 3.6.3
+    outputFile: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/target/my-spring-app-1.0.0.jar
+    classOutputDir: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/target/classes/
+    resourceDir: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/target/classes/
+  scmInfo:
+    root: file:///C:/Users/acasa/IdeaProjects/udemy/Dillip/sample-kubernetes-dekorate/
+    branch: master
+    commit: 69e9b8b608de2cfdfdd93f1725631f199f2c207d
+    remote:
+      origin: https://github.com/acasado666/sample-kubernetes-dekorate.git
+partOf: null
+name: my-spring-app
+version: 1.0.0
+deploymentKind: Deployment
+workingDir: null
+serviceAccount: null
+serviceType: ClusterIP
+imagePullPolicy: IfNotPresent
+deploymentStrategy: None
+rollingUpdate: null
+nodeSelector: null
+livenessProbe:
+  httpActionPath: /actuator/health/liveness
+  execAction: null
+  tcpSocketAction: null
+  grpcAction: null
+  initialDelaySeconds: null
+  periodSeconds: null
+  timeoutSeconds: null
+  successThreshold: null
+  failureThreshold: null
+readinessProbe:
+  httpActionPath: /actuator/health/readiness
+  execAction: null
+  tcpSocketAction: null
+  grpcAction: null
+  initialDelaySeconds: null
+  periodSeconds: null
+  timeoutSeconds: null
+  successThreshold: null
+  failureThreshold: null
+startupProbe: null
+requestResources: null
+limitResources: null
+autoDeployEnabled: false
+replicas: 1
+ingress:
+  host: null
+  ingressClassName: null
+  targetPort: null
+  expose: null
+  tlsSecretName: null
+headless: false
