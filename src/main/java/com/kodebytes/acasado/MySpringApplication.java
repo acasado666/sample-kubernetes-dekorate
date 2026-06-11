@@ -15,12 +15,16 @@ public class MySpringApplication {
     }
 
     @RestController
-    @RequestMapping("/api/v1")
     public class DekorateController {
 
         @GetMapping("/hello")
         public ResponseEntity<String> getHello() {
-            return ResponseEntity.ok("Hello, World!");
+            return ResponseEntity.ok("Hello, from Kubernetes!");
+        }
+
+        @GetMapping("/")
+        String home() {
+            return "Spring Boot + Dekorate + Skaffold is running";
         }
     }
 
