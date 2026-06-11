@@ -1,1 +1,1 @@
-# sample-kubernetes-okteto
+# sample-kubernetes-dekorate
